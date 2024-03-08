@@ -29,7 +29,7 @@ function average(arrStr) {
         return undefined; 
     }
     const sum = arrStr.reduce((total, num) => total + num, 0);
-    return sum / arrStr.length;
+    return (sum / arrStr.length).toFixed(4);
          
 }
 
@@ -44,8 +44,23 @@ function median(arrStr) {
     }
 }
 
+const input = document.querySelectorAll('.input')
 
-console.log(maxNumber(arrStr));
-console.log(minNumber(arrStr));
-console.log(average(arrStr));
-console.log(median(arrStr));
+input.forEach(inputElement => {
+    switch(inputElement.name) {
+        case 'maxNumber':
+            inputElement.value = maxNumber(arrStr);
+            break;
+        case 'minNumber':
+            inputElement.value = minNumber(arrStr);
+            break;
+        case 'average':
+            inputElement.value = average(arrStr);
+            break;
+        case 'median':
+            inputElement.value = median(arrStr);
+            break;
+        default:
+            inputElement.value = '';
+    }
+});
